@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NEXTJS-ROOM-ESERVATION-APP
+
+## Description
+
+This is a testing project developed with **Next.js 14**. The app is a simple room reservation system that includes authentication, user roles (admin and user), and basic CRUD operations. The project demonstrates the use of various libraries and tools like `next-auth` for authentication, `MongoDB` as the database, `@nextui-org/react` for UI components, `zustand` for state management, and `react-hook-form` with `zod` for form handling and validation and others.
+
+## Features
+
+- **Admin and User Authentication & Authorization**
+
+  - Users can register and log in using **NextAuth.js**.
+  - Admins and users have different roles and access levels.
+
+- **Models**:
+
+  - **Room**: Rooms that can be managed by admins and reserved by users.
+  - **Reservation**: Reservation records that track user bookings.
+
+- **Admin Functionalities**:
+
+  - View, add, update, and delete rooms.
+  - View users and their reservations.
+
+  To access the admin functionalities, you may need to seed or manually create an admin user in your MongoDB database, in other words, set role to admin instead of user which is set by default.
+
+- **User Functionalities**:
+
+  - Register and log in.
+  - View available rooms.
+  - Make a reservation for a room using its room ID.
+
+- **Simple UI**:
+  - Admin and user dashboards with relevant actions for each role.
+  - Room management, user management, and reservation management.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Node.js**: Make sure you have Node.js installed.
+- **MongoDB**: Set up your MongoDB database on [MongoDB Atlas](https://www.mongodb.com/atlas/database). You will need to provide the environment variables in your `.env.local` file.
+- Create a `.env.local` file in the root directory and add the following environment variables:
+
+```
+BASE_URL="http://localhost:3000"
+NEXTAUTH_URL="http://localhost:3000"
+
+NEXTAUTH_SECRET="your-next-auth-secret"
+
+JWT_SECRET_KEY="some-secret-key"
+
+MONGO_DB_USER="your-mongodb-username"
+MONGO_DB_PASSWORD="your-mongodb-password"
+MONGO_DB_CLUSTER="your-mongodb-atlas-cluster" // eg. "cluster0.dty1rt7.mongodb.net"
+MONGO_DB_NAME="your-database-name"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository
+2. Install dependencies with `npm install`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Run the app
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Start dev server with `npm run dev`
